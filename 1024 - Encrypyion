@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void inverte (char *p)
+{
+    char letra;
+    int i;
+    for(i=0;i<strlen(p)/2;i++)
+    {
+        letra=p[strlen(p)-1-i];
+        p[strlen(p)-1-i]=p[i];
+        p[i]=letra;
+
+    }
+}
+
+int main()
+{
+    int linhas,i,j;
+    char palavra[1001];
+    scanf("%d ",&linhas);
+    for(i=0;i<linhas;i++)
+    {
+        gets(palavra);
+        for(j=0;j<strlen(palavra);j++)
+        {
+            if((palavra[j]>='a' && palavra[j]<='z') || (palavra[j]>='A' && palavra[j]<='Z'))
+            palavra[j]+=3;
+        }
+        inverte(palavra);
+        for(j=strlen(palavra)/2;j<strlen(palavra);j++)
+        {
+            palavra[j]-=1;
+        }
+        printf("%s\n",palavra);
+    }
+
+}
