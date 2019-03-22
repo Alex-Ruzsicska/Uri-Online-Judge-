@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+ int h_in,m_in,h_fim,m_fim,res_in,res_fim;
+ int res,loop=1;
+
+while(loop==1)
+{
+    scanf("%d %d %d %d",&h_in,&m_in,&h_fim,&m_fim);
+    res_in=(60*h_in)+m_in;
+    res_fim=(60*h_fim)+m_fim;
+    if(res_in==0 && res_fim==0) exit(0);
+    if(res_in>=res_fim)
+    {
+        res = res_fim + 1440 - res_in;
+    }
+    else res = res_fim - res_in;
+
+    printf("%d\n",res);
+}
+}
