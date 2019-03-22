@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+void cripMaius(char *p,int i)
+{
+    int j;
+    for(j=1;j<=13;j++)
+    {
+        p[i]=p[i]+1;
+        if(p[i]>90) p[i]='A';
+    }
+
+}
+void cripMinus(char *p,int i)
+{
+    int j;
+    for(j=1;j<=13;j++)
+    {
+        p[i]=p[i]+1;
+        if(p[i]>122) p[i]='a';
+    }
+
+}
+
+
+
+int main()
+{
+    char palavra[51];
+    int i,tam;
+    while(gets(palavra)!= NULL)
+    {
+        tam=strlen(palavra);
+        for(i=0;i<tam;i++)
+        {
+            if(palavra[i]>=65 && palavra[i]<=90)
+            {
+                cripMaius(palavra,i);
+            }
+            else if(palavra[i]>=97 && palavra[i]<=122)
+            {
+                cripMinus(palavra,i);
+            }
+        }
+        puts(palavra);
+    }
+}
