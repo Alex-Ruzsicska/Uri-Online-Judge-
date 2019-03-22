@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    
+    int xi,yi,xf,yf,xr,yr;
+    do
+    {
+        scanf("%d %d %d %d",&xi,&yi,&xf,&yf);
+        if(xi==0) break;
+        xr=xf-xi;
+        yr=yf-yi;
+        if(xr==0 && yr==0)printf("0\n");
+        else if(xr==yr || xr*(-1)==yr) printf("1\n");
+        else if(xr==0 || yr==0)printf("1\n");
+        else printf("2\n");
+
+    }
+    while(xi!=0);
+}
