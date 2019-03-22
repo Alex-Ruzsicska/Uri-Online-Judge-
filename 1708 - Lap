@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int pri, ult;
+    float res;
+    scanf("%d %d",&pri, &ult);
+    res=(ult-pri);
+    res=(ult/res);
+    pri=res;
+    if(pri-res==0)
+    {
+        printf("%d",pri);
+        printf("\n");
+    }
+    else
+    {
+        pri=res+1;
+        printf("%d",pri);
+        printf("\n");
+    }
+
+}
