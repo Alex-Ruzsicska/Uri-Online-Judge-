@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+    
+    int mer,vivos,i,*arquivo,aux;
+    while(scanf("%d %d",&mer,&vivos)!=EOF)
+    {
+        arquivo = (int*) calloc (1001,sizeof(int));
+        if(mer==vivos)
+        {
+            for(i=1;i<=vivos;i++)
+         {
+             scanf("%d",&aux);
+             arquivo[aux]=1;
+         }
+            printf("*\n");
+        }
+        else
+        {
+         for(i=1;i<=vivos;i++)
+         {
+             scanf("%d",&aux);
+             arquivo[aux]=1;
+         }
+         for(i=1;i<=mer;i++)
+         {
+             if(arquivo[i]==0) printf("%d ",i);
+         }
+         printf("\n");
+        }
+    }
+}
