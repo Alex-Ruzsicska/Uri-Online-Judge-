@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void compara(char *p)
+{
+    int tam, j,posi,posf;
+    tam=strlen(p);
+    for(j=0;j<tam;j++)
+    {
+        if(p[j]=='+')
+        posi=j;
+        if(p[j]=='@')
+        posf=j;
+    }
+    for(j=0;j<tam-posf;j++)
+    {
+        p[posi+j]=p[posf+j];
+    }
+    p[tam-(posf-posi)]='\0';
+}
+void compara2 (char *p)
+{
+    int i,tam,j;
+
+    for(i=0;i<strlen(p);i++)
+    {
+        tam=strlen(p);
+        if(p[i]=='@')
+        break;
+        if(p[i]=='.')
+        {
+            for(j=0;j<tam-i;j++)
+            {
+                p[i+j]=p[i+j+1];
+            }
+            p[tam-1]='\0';
+        }
+    }
+}
+int main()
+{
+    char mail[1000][101];
+    int num,i,j,cont;
+    scanf("%d ",&num);
+    for(i=0;i<num;i++)
+    {
+        gets(mail[i]);
+        for(j=0;j<strlen(mail[i]);j++)
+        {
+            if(mail[i][j]=='+')
+            {compara(mail[i]);
+             break;
+            }
+        }
+
+        compara2(mail[i]);
+
+
+    }
+    cont=0;
+    for(i=0;i<num;i++)
+    {
+        for(j=i+1;j<num;j++)
+        {
+            if(strcmp(mail[i],mail[j])==0)
+            {cont++;
+            break;
+            }
+
+        }
+    }
+    printf("%d",num-cont);
+    printf("\n");
+
+}
