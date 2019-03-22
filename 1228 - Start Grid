@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n,lar[24], che[24];
+    int i,j,k,aux,cont;
+    while(scanf("%d",&n)!=EOF)
+    {
+        cont=0;
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&lar[i]);
+        }
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&che[i]);
+        }
+
+        for(i=0;i<n;i++)
+        {
+            for(j=i;j<n;j++)
+            {
+                if(lar[i]==che[j] && j>i)
+                {
+                    aux=che[j];
+                    for(k=j;k>i;k--)
+                    {
+                        che[k]=che[k-1];
+                    }
+                    che[i]=aux;
+                    cont+=j-i;
+                }
+            }
+        }
+        printf("%d\n",cont);
+    }
+}
