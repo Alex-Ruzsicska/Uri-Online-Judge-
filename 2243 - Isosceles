@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int nc;
+    int coluna[50001];
+    int i,j;
+
+    scanf("%d",&nc);
+    for(i=1;i<=nc;i++)
+    {
+        scanf("%d",&coluna[i]);
+    }
+    coluna[1]=1;
+    coluna[nc]=1;
+    for(i=1;i<=nc;i++)
+    {
+        if(coluna[i+1]>coluna[i]+1)
+        {
+            coluna[i+1]=coluna[i]+1;
+        }
+
+    }
+
+    for(i=nc;i>=1;i--)
+    {
+        if(coluna[i-1]>coluna[i]+1)
+        {
+            coluna[i-1]=coluna[i]+1;
+        }
+
+    }
+
+    j=0;
+    for(i=1;i<=nc;i++)
+    {
+        if(j<coluna[i])
+            j=coluna[i];
+    }
+    printf("%d",j);
+    printf("\n");
+
+}
