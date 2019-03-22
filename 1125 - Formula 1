@@ -1,0 +1,68 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+int main ()
+{
+    
+	int corridas, pilotos, placar[101][101],num_score,score[11][101],res[101];
+	int i,j,k,aux,last[11],loop=0,l=0;
+	while(loop==0)
+{
+	scanf("%d %d",&corridas,&pilotos);
+	if(corridas==0 && pilotos==0) exit(1);
+	for(i=1;i<=corridas;i++)
+	{
+		for(j=1;j<=pilotos;j++)
+		{
+			scanf("%d",&placar[i][j]);
+		}
+
+	}
+
+	scanf("%d",&num_score);
+	for(k=1;k<=num_score;k++)
+	{
+		scanf("%d",&last[k]);
+		for(j=1;j<=last[k];j++)
+		{
+			scanf("%d",&score[k][j]);
+		}
+	}
+
+	for(k=1;k<=num_score;k++)
+	{
+		aux=0;
+		for(i=1;i<=pilotos;i++)
+		{
+			res[i]=0;
+			for(j=1;j<=corridas;j++)
+			{
+				if(placar[j][i]<=last[k])
+				{
+					res[i]=res[i]+score[k][placar[j][i]];
+				}
+
+			}
+			if(res[i]>aux)aux=res[i];
+		}
+        l=0;
+		for(i=1;i<=pilotos;i++)
+		{
+			if(res[i]==aux)
+            {
+                if(l==0)
+                {
+                    printf("%d",i);
+                    l=1;
+                }
+                else printf(" %d",i);
+            }
+		}
+		printf("\n");
+	}
+
+
+}
+
+
+}
