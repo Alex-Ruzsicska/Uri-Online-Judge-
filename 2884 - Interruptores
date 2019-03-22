@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+
+int num_int,num_lamp,*estado,controle[1001][1001];
+int aux,i,k,l,j,cont;
+
+scanf("%d %d",&num_int,&num_lamp);
+estado = (int*) calloc (num_lamp+1,sizeof(int));
+scanf("%d",&aux);
+for(i=1;i<=aux;i++)
+{
+	scanf("%d",&k);
+	estado[k]=1;
+}
+
+for(i=1;i<=num_int;i++)
+{
+	scanf("%d",&aux);
+	controle[i][0]=aux;
+	for(k=1;k<=aux;k++)	
+	{
+		scanf("%d",&controle[i][k]);
+	}
+
+}
+aux=0;
+for(i=0;i<2;i++)
+{
+	for(k=1;k<=num_int;k++)
+	{
+		aux++;	
+		for(l=1;l<=controle[k][0];l++)
+		{		
+			estado[controle[k][l]]=(estado[controle[k][l]]+1)%2;
+
+		}
+		cont=0;
+		for(j=1;j<=num_lamp;j++)
+		{
+			if(estado[j]==0) cont++;
+		}
+		if(cont==num_lamp)
+		{
+			printf("%d\n",aux);
+			exit(0);
+		}
+		
+	}
+
+}
+printf("-1\n");
+
+}
